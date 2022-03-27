@@ -1,7 +1,10 @@
-#!usr/bin/sh
+#!/bin/sh
 
-source env_$ENV.sh
+source /root/scripts/env_$ENV.sh
+
+# Encrypt with
+# gpg --batch --yes --passphrase <password> --output $file.gpg -c $file
 
 for file in ../config/*.gpg; do
-    gpg --decrypt $file --pinentry-mode loopback --passphrase $DECRYPT_PASSWORD > "${file//__/\/}"
+    gpg --pinentry-mode loopback --passphrase $DECRYPT_PASSWORD --decrypt $file > "${file//__/\/}"
 done

@@ -36,7 +36,7 @@ Once virtual box is running:
 
 ### To Run
 
-Install Vagrant
+Install Vagrant and VirtualBox
 https://www.vagrantup.com/docs/installation
 
 create folder structure
@@ -47,12 +47,15 @@ create folder structure
     \db
 ```
 
-Check out hte code from GitHub in the appropriate folder
+Check out the code from GitHub in the appropriate folder
 https://github.com/JonathanRys/recipe_app.git
 https://github.com/JonathanRys/recipe_app_db.git
 
 cd into the `app` folder and run
 `vagrant up`
+
+this might fail the first time with an error about the creator_uid.  If that happens, update this file to contain the number listed in the error:
+`.vagrant/machines/default/virtualbox/creator_uid`
 
 SSH into the server with
 `vagrant ssh`
