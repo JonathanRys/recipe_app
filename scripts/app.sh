@@ -45,7 +45,7 @@ echo ###### Please enter the decryption password:
 gpg --decrypt $env_file --pinentry-mode loopback --passphrase-fd 0 > /root/scripts/$env_file
 cp /vagrant/scripts/decrypt.sh /root/scripts
 chmod +x /root/scripts/decrypt.sh
-./
+./root/scripts/decrypt.sh
 
 # create soft links for nginx
 ln -s /etc/nginx/sites-available/recipe_app.conf /etc/nginx/sites-enabled/recipe_app.conf
