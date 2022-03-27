@@ -1,0 +1,13 @@
+[Unit]
+Description=Recipe flask app
+Requires=network.target
+After=network.target
+
+[Service]
+User=vagrant
+WorkingDirectory=/var/www/app
+ExecStart=/usr/local/bin/flask run
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

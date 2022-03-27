@@ -1,0 +1,9 @@
+# ignore unencrypted files
+#config/*
+!config/*.gpg
+!config/*.service
+# allow specific unencrypted configs
+!config/requirements.txt
+# ignore the unencrypted config
+recipe_app/config.py
+scripts/env_*.sh

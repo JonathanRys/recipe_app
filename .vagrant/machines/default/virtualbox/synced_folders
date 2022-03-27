@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/app":{"guestpath":"/var/www/app","hostpath":"C:/Users/Aggro/node/projects/recipe_app/app/recipe_app","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/Aggro/node/projects/recipe_app/app","disabled":false,"__vagrantfile":true}}}
