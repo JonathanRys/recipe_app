@@ -1,3 +1,5 @@
+# ignore vagrant machine files
+.vagrant/
 # ignore unencrypted files
 #config/*
 !config/*.gpg
@@ -7,5 +9,5 @@
 # ignore the unencrypted config
 recipe_app/config.py
 scripts/env_*.sh
-# ignore the creator_uid file since it needs to be updated for every user
-.vagrant/machines/default/virtualbox/creator_uid
+# ignore compiled python
+*.pyc

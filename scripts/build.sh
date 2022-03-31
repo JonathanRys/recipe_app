@@ -1,7 +1,7 @@
 # declare environment
-export ENV=dev
+export ENV=development
 export FLASK_APP=app
-export FLASK_ENV=development
+export FLASK_ENV=$ENV
 
 # ensure apt is up to date
 apt update

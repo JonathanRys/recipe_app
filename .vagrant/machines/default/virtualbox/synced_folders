@@ -1,1 +1,0 @@
-{"virtualbox":{"/var/www/app":{"guestpath":"/var/www/app","hostpath":"/Users/jonathanrys/Development/recipe_app/recipe_app","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/jonathanrys/Development/recipe_app","disabled":false,"__vagrantfile":true}}}
