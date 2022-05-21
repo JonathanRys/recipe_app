@@ -2,28 +2,28 @@
 
 ### Architecture
 
-Flux store
-Ubuntu
-ElasticSearch
-Django?
-Nginx?
+* Flux / MobX / Remix?
+* Ubuntu
+* ElasticSearch
+* Django / Flask?
+* Nginx?
 
 Create an interface for the frontend so that templates can be easily used
 
 ### Store Methods
 
 ===============
-addRecipe
-removeRecipe
-showRecipe
-hideRecipe
-adjustQuantity
-upVote
-downVote
-comment
-recommend
-tag
-favorite
+* addRecipe
+* removeRecipe
+* showRecipe
+* hideRecipe
+* adjustQuantity
+* upVote
+* downVote
+* comment
+* recommend
+* tag
+* favorite
 
 Allow dietary preferences and substitutions
 
