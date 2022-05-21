@@ -47,9 +47,9 @@ create folder structure
     \db
 ```
 
-Check out the code from GitHub in the appropriate folder
-https://github.com/JonathanRys/recipe_app.git
-https://github.com/JonathanRys/recipe_app_db.git
+Check out the code from GitHub in the appropriate folder:
+* https://github.com/JonathanRys/recipe_app.git
+* https://github.com/JonathanRys/recipe_app_db.git
 
 cd into the `app` folder and run
 `vagrant up`
