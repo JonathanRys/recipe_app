@@ -6,31 +6,16 @@ from .. import app
 
 
 @app.route("/")
-def hello():
-    return "<h1 style='color:blue; margin:10px'>Hello There!</h1>"
-
-
-@app.route("/test")
-def test_page():
+def home():
 
     sample_data = {
         "bundle": url_for('static', filename='bundle.js'),
         "page": {
-            "title": "Test Page"
+            "title": "Recipe App"
         }
     }
 
     return render_template('index.html', **sample_data)
-
-
-
-
-@app.route('/hello')
-def say_hello():
-    """
-    A simple page that says hello
-    """
-    return '<p>Hello, World!</p>'
 
 
 if __name__ == '__main__':
