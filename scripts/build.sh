@@ -40,18 +40,28 @@ nvm install 16
 
 # copy/decrypt configs
 mkdir /root/scripts
-env_file=./scripts/env_$ENV.sh
-echo ###### Please enter the decryption password:
-gpg --decrypt $env_file --pinentry-mode loopback --passphrase-fd 0 > /root/scripts/$env_file
-cp /vagrant/scripts/decrypt.sh /root/scripts
-chmod +x /root/scripts/decrypt.sh
-./root/scripts/decrypt.sh
+env_file=env_$ENV.sh
+
+cp /vagrant/scripts/$env_file /root/scripts
+
+# copy the setup scripts and make them executable
+for file in "copy_configs.sh"; do
+    cp /vagrant/scripts/$file /root/scripts
+    chmod -R 700 /root/scripts/$file
+    /root/scripts/$file
+done
 
 # create soft links for nginx
 ln -s /etc/nginx/sites-available/recipe_app.conf /etc/nginx/sites-enabled/recipe_app.conf
 
 # create a soft link for the flask service
-sudo ln -s /lib/systemd/system/recipe_app.service /etc/systemd/system/recipe_app.service
+ln -s /lib/systemd/system/recipe_app.service /etc/systemd/system/recipe_app.service
+
+# set up the firewall
+ufw allow ssh
+ufw allow http
+ufw allow 5000
+ufw --force enable
 
 # start services
 systemctl enable nginx
