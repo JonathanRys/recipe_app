@@ -6,7 +6,7 @@ After=network.target
 [Service]
 User=vagrant
 WorkingDirectory=/var/www/app
-ExecStart=/usr/local/bin/flask run
+ExecStart=python3 run.py
 Restart=always
 
 [Install]

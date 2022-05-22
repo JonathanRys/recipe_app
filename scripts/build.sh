@@ -22,11 +22,11 @@ apt install -y python3-pip python3-dev build-essential libssl-dev libffi-dev pyt
 # source $APP_NAME/bin/activate
 
 # option 2 for virtual env
-# sudo apt install python3-venv
-# mkdir ~/$APP_NAME
-# cd ~/$APP_NAME
-# python3 -m venv $APP_NAME
-# source $APP_NAME/bin/activate
+apt install -y python3-venv
+mkdir ~/$APP_NAME
+cd ~/$APP_NAME
+python3 -m venv $APP_NAME
+source $APP_NAME/bin/activate
 
 # install python libraries
 pip3 install -r $VAGRANT_HOME/$APP_NAME/requirements.txt
@@ -36,8 +36,6 @@ apt update
 apt install -y nginx
 
 # install NVM
-apt update
-apt install -y build-essential libssl-dev
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh | bash
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -45,6 +43,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # install node
 nvm install 16
+# update npm
+npm install -g npm@latest
 
 # copy/decrypt configs
 mkdir /root/scripts
@@ -78,8 +78,18 @@ systemctl enable nginx
 systemctl enable $APP_NAME
 systemctl daemon-reload
 
+# install dependencies
+cd /var/www/app/app/static/recipe_app
+npm install
+# npm link webpack
+
+# build the React app
+# npm run build
+# npx webpack build --config ./web.config.js --stats verbose
+
 # start the app
 cd /var/www/app
 python3 run.py
 
 # clean up
+# reboot

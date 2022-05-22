@@ -16,6 +16,10 @@ for file in /vagrant/config/*; do
             gpg --decrypt $file --pinentry-mode loopback --passphrase $DECRYPT_PASSWORD > $decrypted_file
         else
             cp $file $script_dest
+            if [[ $file == *.service ]]; then
+                # make services not executable
+                chmod -R 644 $script_dest
+            fi
         fi
     fi
 done
