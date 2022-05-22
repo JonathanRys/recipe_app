@@ -2,28 +2,28 @@
 
 ### Architecture
 
-Flux store
-Ubuntu
-ElasticSearch
-Django?
-Nginx?
+* Flux / MobX / Remix?
+* Ubuntu
+* ElasticSearch
+* Django / Flask?
+* Nginx?
 
 Create an interface for the frontend so that templates can be easily used
 
 ### Store Methods
 
 ===============
-addRecipe
-removeRecipe
-showRecipe
-hideRecipe
-adjustQuantity
-upVote
-downVote
-comment
-recommend
-tag
-favorite
+* addRecipe
+* removeRecipe
+* showRecipe
+* hideRecipe
+* adjustQuantity
+* upVote
+* downVote
+* comment
+* recommend
+* tag
+* favorite
 
 Allow dietary preferences and substitutions
 
@@ -47,9 +47,9 @@ create folder structure
     \db
 ```
 
-Check out the code from GitHub in the appropriate folder
-https://github.com/JonathanRys/recipe_app.git
-https://github.com/JonathanRys/recipe_app_db.git
+Check out the code from GitHub in the appropriate folder:
+* https://github.com/JonathanRys/recipe_app.git
+* https://github.com/JonathanRys/recipe_app_db.git
 
 cd into the `app` folder and run
 `vagrant up`
