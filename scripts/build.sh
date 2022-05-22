@@ -13,12 +13,19 @@ VAGRANT_HOME=/vagrant
 
 # install pip
 apt update
-apt install -y python3-pip
+apt install -y python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
 
 # install a virtual environment to run Flask in
 # pip3 install virtualenv
 # virtualenv recipe_app
 # source recipe_app/bin/activate
+
+# option 2 for virtual env
+# sudo apt install python3-venv
+# mkdir ~/recipe_app
+# cd ~/recipe_app
+# python3 -m venv recipeappenv
+# source recipeappenv/bin/activate
 
 # install python libraries
 pip3 install -r $VAGRANT_HOME/config/requirements.txt
@@ -60,12 +67,18 @@ ln -s /lib/systemd/system/recipe_app.service /etc/systemd/system/recipe_app.serv
 # set up the firewall
 ufw allow ssh
 ufw allow http
-ufw allow 5000
+ufw allow 5000 # Flask
 ufw --force enable
+
+mkdir /etc/systemd/system/nginx.service.d
 
 # start services
 systemctl enable nginx
 systemctl enable recipe_app
 systemctl daemon-reload
+
+# start the app
+cd /var/www/app
+python3 run.py
 
 # clean up

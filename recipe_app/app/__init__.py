@@ -5,7 +5,5 @@ from flask import Flask
 
 app = Flask(__name__)
 
-from app import views
-
-
-app.run(debug=True)
+#make sure your editor doesn't move this
+from app.controllers import (test)
