@@ -6,4 +6,4 @@ from flask import Flask
 app = Flask(__name__)
 
 #make sure your editor doesn't move this
-from app.controllers import (test)
+from app.controllers import (home)

@@ -22,11 +22,14 @@ def test_page():
 
     return render_template('index.html', **sample_data)
 
-# a simple page that says hello
+
 
 
 @app.route('/hello')
 def say_hello():
+    """
+    A simple page that says hello
+    """
     return '<p>Hello, World!</p>'
 
 

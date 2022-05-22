@@ -10,6 +10,7 @@ apt -y upgrade
 # declare variables
 NVM_VERSION=0.39.1
 VAGRANT_HOME=/vagrant
+APP_NAME=recipe_app
 
 # install pip
 apt update
@@ -17,18 +18,18 @@ apt install -y python3-pip python3-dev build-essential libssl-dev libffi-dev pyt
 
 # install a virtual environment to run Flask in
 # pip3 install virtualenv
-# virtualenv recipe_app
-# source recipe_app/bin/activate
+# virtualenv $APP_NAME
+# source $APP_NAME/bin/activate
 
 # option 2 for virtual env
 # sudo apt install python3-venv
-# mkdir ~/recipe_app
-# cd ~/recipe_app
-# python3 -m venv recipeappenv
-# source recipeappenv/bin/activate
+# mkdir ~/$APP_NAME
+# cd ~/$APP_NAME
+# python3 -m venv $APP_NAME
+# source $APP_NAME/bin/activate
 
 # install python libraries
-pip3 install -r $VAGRANT_HOME/config/requirements.txt
+pip3 install -r $VAGRANT_HOME/$APP_NAME/requirements.txt
 
 # install nginx
 apt update
@@ -59,10 +60,10 @@ for file in "copy_configs.sh"; do
 done
 
 # create soft links for nginx
-ln -s /etc/nginx/sites-available/recipe_app.conf /etc/nginx/sites-enabled/recipe_app.conf
+ln -s /etc/nginx/sites-available/$APP_NAME.conf /etc/nginx/sites-enabled/$APP_NAME.conf
 
 # create a soft link for the flask service
-ln -s /lib/systemd/system/recipe_app.service /etc/systemd/system/recipe_app.service
+ln -s /lib/systemd/system/$APP_NAME.service /etc/systemd/system/$APP_NAME.service
 
 # set up the firewall
 ufw allow ssh
@@ -74,7 +75,7 @@ mkdir /etc/systemd/system/nginx.service.d
 
 # start services
 systemctl enable nginx
-systemctl enable recipe_app
+systemctl enable $APP_NAME
 systemctl daemon-reload
 
 # start the app
