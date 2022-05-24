@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
   # Nginx
   config.vm.network "forwarded_port", guest: 80, host: 8086, host_ip: "127.0.0.1"
   # Flask
-  config.vm.network "forwarded_port", guest: 5000, host: 80, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 5000, host: 8087, host_ip: "127.0.0.1"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.

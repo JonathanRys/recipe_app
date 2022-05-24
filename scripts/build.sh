@@ -12,9 +12,14 @@ NVM_VERSION=0.39.1
 VAGRANT_HOME=/vagrant
 APP_NAME=recipe_app
 
-# install pip
+# install pip and python dependencies
 apt update
 apt install -y python3-pip python3-dev build-essential libssl-dev libffi-dev python3-setuptools
+
+
+# install node and npm
+apt update
+apt install -y nodejs
 
 # install a virtual environment to run Flask in
 # pip3 install virtualenv
@@ -47,8 +52,9 @@ nvm install 16
 npm install -g npm@latest
 
 # copy/decrypt configs
-mkdir /root/scripts
 env_file=env_$ENV.sh
+mkdir /root/scripts
+mkdir /etc/systemd/system/nginx.service.d
 
 cp /vagrant/scripts/$env_file /root/scripts
 
@@ -71,8 +77,6 @@ ufw allow http
 ufw allow 5000 # Flask
 ufw --force enable
 
-mkdir /etc/systemd/system/nginx.service.d
-
 # start services
 systemctl enable nginx
 systemctl enable $APP_NAME
@@ -81,15 +85,14 @@ systemctl daemon-reload
 # install dependencies
 cd /var/www/app/app/static/recipe_app
 npm install
-# npm link webpack
 
 # build the React app
 # npm run build
-# npx webpack build --config ./web.config.js --stats verbose
+# npx webpack build --config ./webpack.config.js --stats verbose
 
 # start the app
 cd /var/www/app
 python3 run.py
 
 # clean up
-# reboot
+reboot
