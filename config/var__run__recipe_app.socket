@@ -1,9 +1,0 @@
-[Unit]
-Description = Echo server
-
-[Socket]
-ListenStream = 5000
-Accept = yes
-
-[Install]
-WantedBy = sockets.target

@@ -1,6 +1,32 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+$build_npm = <<-SCRIPT
+# install node, git, and npm
+sudo apt update
+
+# install NVM
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# install node
+nvm install 16
+# update npm
+npm install -g npm@latest
+
+sudo apt install -y nodejs git
+
+# install dependencies
+cd /var/www/app/app/static/recipe_app
+npm install
+
+# build the React app
+npm run build
+# npx webpack build --config ./webpack.config.js --stats verbose
+SCRIPT
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -70,5 +96,7 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", path: "./scripts/build.sh"
+  # NPM should never be run as root
+  config.vm.provision "shell", inline: $build_npm, privileged: false
   config.vm.synced_folder "recipe_app/", "/var/www/app"
 end

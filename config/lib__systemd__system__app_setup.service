@@ -1,0 +1,9 @@
+[Unit]
+Description=Reboot app setup service
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /vagrant/scripts/app_setup.sh
+
+[Install]
+WantedBy=multi-user.target

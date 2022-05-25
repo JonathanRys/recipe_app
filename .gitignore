@@ -11,3 +11,5 @@ recipe_app/config.py
 scripts/env_*.sh
 # ignore compiled python
 *.pyc
+# ignore venv files
+/recipe_app-venv

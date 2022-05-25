@@ -1,12 +1,14 @@
 [Unit]
-Description=Recipe flask app
+Description=uWSGI
 Requires=network.target
 After=network.target
 
 [Service]
 User=vagrant
+Group=www-data
 WorkingDirectory=/var/www/app
-ExecStart=python3 run.py
+Environment="PATH=/vagrant/recipe_app-venv/bin/uwsgi"
+ExecStart=/vagrant/recipe_app-venv/bin/uwsgi --ini recipe_app.ini
 Restart=always
 
 [Install]
