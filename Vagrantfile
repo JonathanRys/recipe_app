@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+VAGRANT_HOME='/vagrant'
+APP_NAME='recipe_app'
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -64,11 +67,29 @@ Vagrant.configure("2") do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
 
+  # reboot the machine after provisioning to apply any updates and verify recovery
+  config.trigger.after [:provision] do |t|
+    t.name = "Reboot after provisioning"
+    t.run = { :inline => "vagrant reload" }
+  end
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", path: "./scripts/build.sh"
-  # NPM should never be run as root
-  config.vm.provision "shell", path: "./scripts/build_npm.sh", privileged: false
   config.vm.synced_folder "recipe_app/", "/var/www/app"
+  # build the server
+  config.vm.provision "shell", path: "./scripts/build.sh", env: {
+    "APP_NAME" => APP_NAME,
+    "VAGRANT_HOME" => VAGRANT_HOME
+  }
+  # NPM should never be run as root
+  config.vm.provision "shell", path: "./scripts/build_dependencies.sh", privileged: false, env: {
+    "APP_NAME" => APP_NAME,
+    "VAGRANT_HOME" => VAGRANT_HOME
+  }
+  # start the services
+  config.vm.provision "shell", path: "./scripts/enable_services.sh", env: {
+    "APP_NAME" => APP_NAME,
+    "VAGRANT_HOME" => VAGRANT_HOME
+  }
+  
 end

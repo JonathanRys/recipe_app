@@ -8,8 +8,8 @@ User=vagrant
 Group=www-data
 RuntimeDirectory=uwsgi
 WorkingDirectory=/var/www/app
-Environment="PATH=/vagrant/recipe_app-venv/bin/uwsgi"
-ExecStart=/vagrant/recipe_app-venv/bin/uwsgi --ini recipe_app.ini
+Environment="PATH=/home/vagrant/.local/bin/uwsgi"
+ExecStart=/home/vagrant/.local/bin/uwsgi --virtualenv /vagrant/recipe_app-venv --ini recipe_app.ini
 Restart=always
 RestartSec=3
 
