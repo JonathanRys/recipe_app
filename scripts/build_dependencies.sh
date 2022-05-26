@@ -20,8 +20,9 @@ source ./$APP_NAME-venv/bin/activate
 
 # install python libraries
 pip3 install -r $VAGRANT_HOME/$APP_NAME/requirements.txt
-pip3 install uwsgi
-
+pip3 install uwsgi --target $VAGRANT_HOME/$APP_NAME-venv
+# This gets put in the wrong place in Windows so just move it if it's there
+sudo mv /home/vagrant/.local/bin/uwsgi $VAGRANT_HOME/$APP_NAME-venv/bin/uwsgi
 deactivate
 
 
