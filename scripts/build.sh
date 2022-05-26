@@ -63,22 +63,17 @@ ufw allow http
 ufw allow 5000 # Flask
 ufw --force enable
 
-# This script sets up the directory structure and permissions for the app
-#   - Runs on reboot via app_setup.service
-bash $VAGRANT_HOME/scripts/app_setup.sh
-
 # start services
 systemctl daemon-reload
-
-# enable the reboot setup service
-systemctl enable app_setup
 
 # start the app
 sudo systemctl start $APP_NAME
 sudo systemctl enable $APP_NAME
 
 # start nginx
-systemctl start nginx
 systemctl enable nginx
+systemctl reload nginx
 
 # clean up
+# remove the symlink for the default nginx configuration
+rm /etc/nginx/sites-enabled/default
