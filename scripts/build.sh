@@ -53,3 +53,9 @@ ufw allow ssh
 ufw allow http
 ufw allow 5000 # Flask
 ufw --force enable
+
+# create folders for logs
+for log_target in "flask" "uwsgi" "react"; do
+    mkdir /var/log/$log_target
+    chown vagrant:vagrant /var/log/$log_target
+done

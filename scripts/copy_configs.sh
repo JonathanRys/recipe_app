@@ -18,7 +18,7 @@ for file in /vagrant/config/*; do
             cp $file $script_dest
             if [[ $file == *.service ]]; then
                 # make services not executable
-                chmod -R 644 $script_dest
+                chmod 644 $script_dest
             fi
         fi
     fi

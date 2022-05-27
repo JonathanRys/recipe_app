@@ -48,5 +48,4 @@ sudo apt install -y nodejs git
 cd /var/www/app/app/static/$APP_NAME
 npm install
 
-# build the React app
-npm run build
+# the build_watch service will build the React app so no need to do it here
