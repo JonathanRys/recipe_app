@@ -31,5 +31,7 @@ Check out the code from GitHub in the appropriate folder:
 cd into the `app` folder and run
 `vagrant up`
 
+The react site should be available at http://localhost:8086
+
 SSH into the server with
 `vagrant ssh`
