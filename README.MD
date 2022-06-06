@@ -28,7 +28,7 @@ Check out the code from GitHub in the appropriate folder:
 * https://github.com/JonathanRys/recipe_app.git
 * https://github.com/JonathanRys/recipe_app_db.git
 
-cd into the `app` folder and run
+cd into the `app` folder, decrypt the env file, and run
 `vagrant up`
 
 The react site should be available at http://localhost:8086
