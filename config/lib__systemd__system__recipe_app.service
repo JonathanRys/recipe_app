@@ -6,10 +6,15 @@ After=network.target
 [Service]
 User=vagrant
 Group=www-data
+
 RuntimeDirectory=uwsgi
 WorkingDirectory=/var/www/app
 Environment="PATH=/vagrant/recipe_app-venv/bin/uwsgi"
 ExecStart=/vagrant/recipe_app-venv/bin/uwsgi --virtualenv /vagrant/recipe_app-venv --ini recipe_app.ini
+
+StandardOutput=file:/var/log/uwsgi/uwsgi.log
+StandardError=file:/var/log/uwsgi/error.log
+
 Restart=always
 RestartSec=3
 
