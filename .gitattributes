@@ -17,6 +17,7 @@
 *.conf              -text eol=lf
 *.service           -text eol=lf
 requirements.txt    -text eol=lf
+recipe_app.ini      -text eol=lf
 
 /config      -text eol=lf
 /recipe_app* -text eol=lf
