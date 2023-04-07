@@ -9,8 +9,11 @@ from .. import app
 @app.route("/")
 def home():
 
-    es_search = Search(using=app.es.get('client'), index='test').query('match_all')
-    es_data = es_search.execute()
+    try:
+        es_search = Search(using=app.es.get('client'), index='test').query('match_all')
+        es_data = es_search.execute()
+    except Exception as e:
+        app.logger.warning('ElasticSearch cannot be found')
 
     sample_data = {
         "bundle": url_for('static', filename='bundle.js'),
