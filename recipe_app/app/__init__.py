@@ -18,6 +18,7 @@ app = Flask(__name__)
 
 # set app timezone
 app.timezone = timezone('US/Eastern')
+app.config.from_pyfile('config.py')
 
 
 ### LOGGING
@@ -65,7 +66,7 @@ app.es = {
 
 try:
      # Define a default Elasticsearch client
-    connections.create_connection(alias=app.es.get('client'), hosts=[config.ES_HOST])
+    connections.create_connection(alias=app.es.get('client'), hosts=[app.config['ES_HOST']])
     print(connections.get_connection().cluster.health())
     # @todo Add some preliminary tests here
 except Exception as e:
