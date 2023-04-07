@@ -2,16 +2,21 @@
 # -*- coding: utf-8 -*-
 
 from flask import render_template, url_for
+from elasticsearch_dsl import Search
 from .. import app
 
 
 @app.route("/")
 def home():
 
+    es_search = Search(using=app.es.get('client'), index='test').query('match_all')
+    es_data = es_search.execute()
+
     sample_data = {
         "bundle": url_for('static', filename='bundle.js'),
         "page": {
-            "title": "Recipe App"
+            "title": "Recipe App",
+            "data": es_data[0].data
         }
     }
 

@@ -44,12 +44,6 @@ for file in "copy_configs.sh"; do
 done
 /root/scripts/copy_configs.sh
 
-# create soft links for nginx
-ln -s /etc/nginx/sites-available/$APP_NAME.conf /etc/nginx/sites-enabled/$APP_NAME.conf
-
-# create a soft link for the flask service
-ln -s /lib/systemd/system/$APP_NAME.service /etc/systemd/system/$APP_NAME.service
-
 # set up the firewall
 echo '##### Enable firewall'
 ufw allow ssh

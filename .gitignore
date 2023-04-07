@@ -7,7 +7,7 @@
 # allow specific unencrypted configs
 !config/requirements.txt
 # ignore the unencrypted config
-recipe_app/config.py
+recipe_app/app/config.py
 scripts/env_*.sh
 # ignore compiled python
 *.pyc

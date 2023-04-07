@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "hashicorp/bionic64"
-
+  config.vm.synced_folder "recipe_app/", "/Users/jonathanrys/Development/recipe_app/recipe_app"
   config.vm.define "recipe-app" do |app|
     app.vm.hostname = "recipe-app"
     app.vm.provider :virtualbox do |vb|
@@ -42,7 +42,8 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.10"
+  # config.vm.network "private_network", ip: "192.168.56.50"
+  config.vm.network :private_network, ip: "192.168.56.50"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on

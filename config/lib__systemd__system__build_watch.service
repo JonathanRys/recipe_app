@@ -8,8 +8,8 @@ User=vagrant
 Group=www-data
 
 WorkingDirectory=/var/www/app/app/static/recipe_app
-Environment="PATH=/vagrant/recipe_app-venv/bin:/home/vagrant/.local/bin:/home/vagrant/.nvm/versions/node/v16.15.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/www/app/app/static/recipe_app"
-ExecStart=/home/vagrant/.nvm/versions/node/v16.15.0/bin/npm run build-watch
+Environment="PATH=/vagrant/recipe_app-venv/bin:/home/vagrant/.local/bin:/home/vagrant/.nvm/versions/node/v16.20.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/var/www/app/app/static/recipe_app"
+ExecStart=/home/vagrant/.nvm/versions/node/v16.20.0/bin/npm run build-watch
 
 StandardOutput=file:/var/log/react/react.log
 StandardError=file:/var/log/react/error.log
