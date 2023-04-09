@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
     app.vm.hostname = "recipe-app"
     app.vm.provider :virtualbox do |vb|
       vb.name = "recipe-app"
+      vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/var/www/app/app/static", "1"]
     end
   end
   # Disable automatic box update checking. If you disable this, then

@@ -10,7 +10,7 @@ from .. import app
 def home():
 
     try:
-        es_search = Search(using=app.es.get('client'), index='test').query('match_all')
+        es_search = Search(using=app.es.client, index='test').query('match_all')
         es_data = es_search.execute()
     except Exception as e:
         app.logger.warning('ElasticSearch cannot be found')
