@@ -24,7 +24,7 @@ Available public methods:
 import re
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
-import special_chars
+from . import special_chars
 
 porter_stemmer = PorterStemmer()
 stop_words = set(stopwords.words('english'))

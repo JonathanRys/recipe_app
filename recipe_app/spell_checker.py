@@ -46,9 +46,9 @@ import os
 import collections
 
 from nltk.corpus import stopwords
-from .data.stop_words import stop_words
-from .data.whitelists import whitelists
-from .data.language_codes import language_codes
+from data.stop_words import stop_words
+from data.whitelists import whitelists
+from data.language_codes import language_codes
 
 dirname = os.path.dirname(__file__)
 
@@ -205,16 +205,16 @@ def test():
     spell_checker = SpellChecker(whitelists['spelling']['all'])
     assert(spell_checker.correct("fried") == "fried")
 
-    fruit_test = SpellChecker(whitelists['spelling']['fruits'])
+    fruit_test = SpellChecker(whitelists['spelling']['fruit'])
     assert(fruit_test.correct("Appil") == "Apple")
 
-    mush_test = SpellChecker(whitelists['spelling']['mushrooms'])
+    mush_test = SpellChecker(whitelists['spelling']['mushroom'])
     assert(mush_test.correct("Portabella") == "Portobello")
 
-    fruit_test = SpellChecker('fruits')
+    fruit_test = SpellChecker('fruit')
     assert(fruit_test.correct("Appil") == "Apple")
 
-    veg_test = SpellChecker(whitelists['spelling']['vegetables'])
+    veg_test = SpellChecker(whitelists['spelling']['vegetable'])
     assert(veg_test.correct("celry") == "celery")
     assert(veg_test.correct("celeryz") == "celery")
     assert(veg_test.correct("cElryz") == "cElery")
@@ -243,7 +243,7 @@ def cmd_ln_interface():
                     break
                 else:
                     print("\nERROR: Dictionary", dictionary, "not found.")
-                    print("Please choose one of:\n    alcohol\n    artificial\n    carcinogens\n    dairy\n    eggs\n    fish\n    fruits\n    grains\n    insects\n    legumes\n    mushrooms\n    non_vegan\n    nuts\n    oil\n    pork\n    poultry\n    processed\n    red_meat\n    rennet\n    seeds\n    shellfish\n    spices\n    vegetables\n    wheat\n")
+                    print("Please choose one of:\n    alcohol\n    artificial\n    carcinogen\n    dairy\n    egg\n    fish\n    fruit\n    grain\n    insect\n    legume\n    mushroom\n    non_vegan\n    nut\n    oil\n    pork\n    poultry\n    processed\n    red_meat\n    rennet\n    seed\n    shellfish\n    spice\n    vegetable\n    wheat\n")
             continue
         elif " " in input_word or not len(input_word):
             print("Please enter a single word.")

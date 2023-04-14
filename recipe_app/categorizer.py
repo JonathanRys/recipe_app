@@ -23,13 +23,20 @@ from multiprocessing import Pool
 from nltk.stem import PorterStemmer
 from nltk import word_tokenize
 from nltk.corpus import stopwords
-# from sympound import sympound
+
+try:
+    stopwords.words('english')
+    word_tokenize('test')
+except LookupError as e:
+    import nltk
+    nltk.download('stopwords')
+    nltk.download('punkt')
 
 if __name__ == '__main__':
     from spell_checker import SpellChecker
     from data.whitelists import whitelists
     from data.stop_words import stop_words
-    from tokenizer import tokenizer
+    from tokenizer.tokenizer import tokenizer
 else:
     from .spell_checker import SpellChecker
     from .data.whitelists import whitelists
@@ -39,7 +46,7 @@ else:
 # Use the platform-specific version of the Damerau-Levenshtein distance formula
 dam_lev_distance = None
 
-if platform.system() != "Windows":
+if platform.system() == "Windows":
     from pyxdameraulevenshtein import damerau_levenshtein_distance
     dam_lev_distance = damerau_levenshtein_distance
 else:
@@ -200,7 +207,7 @@ def categorize(ingredient_list):
 
             nearest = next_nearest(ingredient, category, nearest)
 
-        if len(nearest):
+        if len(nearest) and nearest[0][2]:
             for match in correct_ingredients(nearest, ingredient, ingredient_phrase):
                 possible_matches.append(match)
 
