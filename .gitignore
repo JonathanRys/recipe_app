@@ -13,3 +13,4 @@ scripts/env_*.sh
 *.pyc
 # ignore venv files
 /recipe_app-venv
+.DS_Store

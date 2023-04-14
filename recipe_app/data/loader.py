@@ -1,23 +1,38 @@
 import requests
 import json
 from elasticsearch import Elasticsearch
-from elasticsearch_dsl import Index, Document, Text, Object, Search
-from elasticsearch_dsl import connections
-from ..app import config
+from elasticsearch_dsl import Index, Document, Text, Object, Search, SearchAsYouType
+from elasticsearch_dsl import connections, analyzer
+from elasticsearch_dsl.query import MultiMatch, Match
 
-connections.create_connection(alias='default', hosts=config['ES_HOST'])
-client = Elasticsearch()
-s = Search(using=client)
+connections.create_connection(alias='default', hosts='192.168.56.92')
 
+# client = Elasticsearch()
+# s = Search(using=client)
+# def file_to_list(stop_words):
+#     words_list = []
+#     with open(stop_words, 'r') as f:
+#         for line in f:
+#             words_list.append(line[:-1] if '\n' in line else line)
+#     return words_list
 
-#s.save(index='fooddata')
+ingredient_tokenizer = tokenizer("gram", "ngram", min_gram=3, max_gram=7)
 
+ingredient_analyzer = analyzer(
+    'keyword',
+    tokenizer="standard",
+    filter=["lowercase", "stop", "snowball"],
+    char_filter=["html_strip"],
+    stopwords_path='stop_words.txt',
+    # stop_words=file_to_list('stop_words.txt')
+)
 
-# Create mappings
+# Define mappings
 class Ingredient(Document):
-    name = Text(required=True)
+    name = SearchAsYouType(required=True)
+    # name_kw = Text(required=True, analyzer='keyword')
     nutrition_info = Object()
-    classification = Text()
+    classification = Text(multi=True)
     misspellings_1 = Text(multi=True)
     misspellings_2 = Text(multi=True)
     misspellings_3 = Text(multi=True)
@@ -25,7 +40,6 @@ class Ingredient(Document):
     class Index:
         name = 'fooddata'
         settings = {"number_of_shards": 1, "number_of_replicas": 0}
-
 
 # Create the index
 if not Ingredient._index.exists():
@@ -46,7 +60,7 @@ if not Ingredient._index.exists():
 
 # Add data
 
-data = {
+file_list = {
     'alcohol': 'alcohol.txt',
     'artificial': 'artificial.txt',
     'carcinogen': 'carcinogen.txt',
@@ -82,19 +96,49 @@ headers = {
 }
 
 def load_data(ingredients_data):
-    index = 0
     for entry in ingredients_data:
         with open(ingredients_data[entry], 'r') as f:
             for line in f:
-                url = 'http://localhost:9200/fooddata/foods/' + str(index)
                 entry_data = {
                     'name': line[:-1] if '\n' in line else line,
                     'classification': entry
                 }
-                requests.put(url=url, headers=headers, data=json.dumps(entry_data))
-                index += 1
+
+                # Add to classification if it exists, otherwise creat a new record
+                ingredient = Ingredient(**entry_data)
+                ingredient.save()
+
+    Ingredient._index.refresh()
+
+
+def match_prefix(prefix):
+    s = Ingredient.search()
+
+    s.query = MultiMatch(
+        query=prefix,
+        type="bool_prefix",
+        fields=["name", "name._2gram", "name._3gram"],
+    )
+
+    return s.execute()
+
+def exact_match(term):
+    s = Ingredient.search()
+
+    s.query = Match(name={"query": term})
+    s.filter("term", name=term)
+    # s = Search().query("match", name=term)
+
+    return s.execute()
+
+def suggest_match(term):
+    # s = s.suggest('my_suggestion', 'pyhton', term={'field': 'title'})
+    pass
 
 if __name__ == '__main__':
-    load_data(data)
+    # load_data(file_list)
     print('Data loaded.')
+    prefix_to_match = 'appl'
+    print('match prefix ({}):'.format(prefix_to_match), ['{}:{}'.format(p.name, p.classification) for p in match_prefix(prefix_to_match)])
+    print('exact match (apple):', ['{}:{}'.format(match.name, match.classification) for match in exact_match('apple')])
 

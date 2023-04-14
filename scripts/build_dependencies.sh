@@ -24,8 +24,6 @@ pip3 install uwsgi
 deactivate
 
 ### React dependencies
-
-# install node, git, and npm
 sudo apt update
 
 # install NVM
@@ -39,6 +37,7 @@ nvm install 16.20.0
 # update npm
 npm install -g npm@latest
 
+# install git
 sudo apt install -y nodejs git
 
 # install dependencies
