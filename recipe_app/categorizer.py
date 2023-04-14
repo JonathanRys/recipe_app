@@ -26,12 +26,12 @@ from nltk.corpus import stopwords
 # from sympound import sympound
 
 if __name__ == '__main__':
-    from tokenizer.spell_checker import SpellChecker
+    from spell_checker import SpellChecker
     from data.whitelists import whitelists
     from data.stop_words import stop_words
     from tokenizer import tokenizer
 else:
-    from .tokenizer.spell_checker import SpellChecker
+    from .spell_checker import SpellChecker
     from .data.whitelists import whitelists
     from .data.stop_words import stop_words
     from .tokenizer import tokenizer
