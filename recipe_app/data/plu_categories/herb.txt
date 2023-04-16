@@ -1,0 +1,71 @@
+herb
+allspice
+angelica
+anise
+asafoetida
+basil
+bay leaf
+bergamot
+black cumin
+black mustard
+black pepper
+borage
+brown mustard
+burnet
+caraway
+cardamom
+cassia
+catnip
+cayenne pepper
+celery seed
+chervil
+chicory
+chili pepper
+chives
+cicely
+cilantro
+cinnamon
+clove
+coriander
+costmary
+cumin
+curry
+dill
+fennel
+fenugreek
+filé
+ginger
+grains of paradise
+holy basil
+horehound
+horseradish
+hyssop
+lavender
+lemon balm
+lemon grass
+lemon verbena
+licorice
+lovage
+mace
+marjoram
+nutmeg
+oregano
+paprika
+parsley
+peppermint
+poppy seed
+rosemary
+rue
+saffron
+sage
+savory
+sesame
+sorrel
+spearmint
+star anise
+tarragon
+thyme
+turmeric
+vanilla
+wasabi
+white mustard

@@ -79,7 +79,7 @@ for x in STEMS_BY_CATEGORY:
         print("Loading", file_name)
 
     with open(file_name, "rt", encoding='utf-8') as f:
-        CATEGORIES[x] = f.read().split("\n")
+        CATEGORIES[x] = f.readlines()
 
 
 # Preload the spell checkers
@@ -431,11 +431,11 @@ def run_test(params):
     print("\nCategorizing:", params)
 
     num_params = len(params) + 14
-    print("".join(["=" for x in range(num_params)]))
+    print("".join(["=" for x in min(range(num_params), 200)]))
 
     result = categorize(params)
 
-    print("".join(["=" for x in range(num_params)]))
+    print("".join(["=" for x in min(range(num_params), 200)]))
     print("Result:", json.dumps(result, sort_keys=True, indent=4))
 
 

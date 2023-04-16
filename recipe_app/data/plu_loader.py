@@ -10,6 +10,7 @@ from elasticsearch import Elasticsearch
 from elasticsearch_dsl import Index, Document, Boolean, Text, Object, Search, SearchAsYouType
 from elasticsearch_dsl import connections, analyzer, tokenizer, char_filter, token_filter
 from elasticsearch_dsl.query import MultiMatch, Match
+from plu_categorizer import classify
 
 plu_data = 'PLU_codes_full'
 
@@ -66,15 +67,16 @@ class PLU(Document):
         analysis = plu_analyzer
         settings = {'number_of_shards': 1, 'number_of_replicas': 0}
 
-    def farming_method(self):
-        if len(self.plu) == 4:
-            return 'conventional'
-        elif len(self.plu) == 5:
-            if self.plu[:1] == 8:
-                return 'gmo'
-            elif self.plu[:1] == 9:
-                return 'organic'
-        return 'unknown'
+def get_farming_method(plu):
+    '''Returns the farming method for the givenn PLU'''
+    if len(plu) == 4:
+        return 'conventional'
+    elif len(plu) == 5:
+        if plu[:1] == 8:
+            return 'gmo'
+        elif plu[:1] == 9:
+            return 'organic'
+    return 'unknown'
 
 # Create the index
 if not PLU._index.exists():
@@ -96,14 +98,10 @@ def load_data(plu_data=plu_data):
                 retailer_assigned = True
                 name = name.replace('retailer assigned ', '')
 
-            classification = 'unknown'
-
-            # import classifier
-
             entry_data = {
                 'plu': code,
                 'name': name,
-                'classification': classification,
+                'classification': classify(name),
                 'retailer_assigned': retailer_assigned
             }
 
@@ -159,10 +157,8 @@ if __name__ == '__main__':
     if args.test:
         print('\n### Run Tests:')
         print('prefix match (apple):', [entry.name for entry in prefix_match('apple')])
-        print('prefix match (apples):', [entry.name for entry in prefix_match('apples')])
         print('\n')
         print('exact match (apple):', [entry.name for entry in exact_match('apple')])
-        print('exact match (apples):', [entry.name for entry in exact_match('apples')])
         print('\n')
         print('plu lookup (4133):', [entry.name for entry in plu_lookup('4133')])
 

@@ -1,0 +1,8 @@
+nut
+pecan
+walnut
+cashew
+almond
+hazelnut
+macadamia
+pistachio
