@@ -1,10 +1,9 @@
-Allergens
-allergens
 AnthoGrain
 anthograin
 atta
 attaflour
 bagel
+Bagel
 baguette
 beer
 biscotti
@@ -13,7 +12,6 @@ bleachedwheatflour
 bran
 bread
 BREADCRUMBS
-breadcrumbs
 breadcrumbs
 breadstick
 Brioche
@@ -32,7 +30,6 @@ crackers
 Crepe
 crepe
 croissant
-Bagel
 crouton
 crumb
 Crumbs
@@ -62,6 +59,7 @@ germ
 gluten
 Glutinous
 glutinous
+gluttonous
 graham
 grain
 Grains
@@ -95,7 +93,6 @@ pizza
 Potsticker
 potsticker
 roll
-romaine
 rosemary
 rotini
 seitan
@@ -103,7 +100,6 @@ semolina
 shortbread
 sourdough
 spaghetti
-speculoos
 Tortellini
 tortellini
 Tortilla
@@ -143,4 +139,3 @@ wonton
 Ziti
 ziti
 Zwieback
-gluttonous

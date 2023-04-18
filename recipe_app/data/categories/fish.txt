@@ -19,8 +19,6 @@ blueback
 Blueback
 bluefin
 bonito
-bonito
-bonito
 Bouillabaisse
 bouillabaisse
 bowfin
@@ -153,7 +151,6 @@ perch
 Perch
 Pike
 pike
-pilchardus
 pilchardus
 poe
 poisson

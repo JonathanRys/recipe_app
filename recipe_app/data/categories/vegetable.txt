@@ -385,6 +385,7 @@ shishito
 shoepeg
 shoots
 sinensis
+skirret
 sorrel
 spearmint
 spears

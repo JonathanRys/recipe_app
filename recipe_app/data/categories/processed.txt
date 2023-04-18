@@ -10,7 +10,6 @@ apple cider vinegar
 Applecider vinegar
 applecidervinegar
 autolyzed
-autolyzed
 Baked
 baked
 baking soda
@@ -55,7 +54,6 @@ Chopped
 chops
 CLARIFIED
 clarified
-clarified
 Cleaned
 cleaned
 coasted
@@ -97,7 +95,6 @@ crushed
 Crushed
 crystal
 Crystallized
-crystallized
 crystallized
 Cubed
 cubed
@@ -203,7 +200,6 @@ jimmies
 juiced
 ketchup
 ketsup
-lecithins
 lecithins
 Lollipop
 Low fat
@@ -361,5 +357,3 @@ wax
 Wax
 waxed
 Waxed
-Waxy
-waxy

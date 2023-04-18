@@ -8,9 +8,9 @@ def get_item_gen(category):
     '''Returns a generator to return each item from the given category'''
     def next_item():
         with open(os.path.join(dirname, './plu_categories/{}.txt'.format(category))) as f:
+            # remove the newline character
             line = f.readline()[:-1]
             while line:
-                # remove the newline character
                 yield line
                 line = f.readline()[:-1]
 

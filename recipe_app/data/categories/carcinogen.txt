@@ -21,7 +21,6 @@ benzotrichloride
 1-amino-2-methylanthraquinone
 1-bromopropane
 1-nitropyrene
-1-nitropyrene
 2, 2-bis-(bromoethyl)-1,3-propanediol
 2,3,4,7,8-pentachlorodibenzofuran
 2,3,7,8-tetrachlorodibenzo-p-dioxin
@@ -39,7 +38,6 @@ benzotrichloride
 2-aminoanthraquinone
 2-methylaziridine
 2-naphthylamine
-2-naphthylamine
 2-nitropropane
 2-nitrotoluene
 3,3'-dichlorobenzidine and 3,3'-dichlorobenzidine dihydrochloride
@@ -51,9 +49,7 @@ benzotrichloride
 4,4'-methylenedianiline
 4,4'-oxydianiline
 4,4'-thiodianaline
-4-(N-nitrosomethylamino)-1-(3-pyridyl)-1-butanone
 4-4'-methylenebis(N,N-dimethyl)benzenamine
-4-aminobiphenyl
 4-aminobiphenyl
 4-chloro-o-phenylenediamine
 4-chloro-ortho-toluidine
@@ -64,13 +60,10 @@ benzotrichloride
 5-methoxypsoralen
 5-methylchrysene
 6-nitrochrysene
-6-nitrochrysene
 7H-dibenzocarbazole
 8-methoxypsoralen
 acetaldehyde
-acetaldehyde
 acheson
-acrylamide
 acrylamide
 acrylonitrile
 adriamycin
@@ -101,7 +94,6 @@ benzene
 benzidine
 benzofluoranthene
 benzopyrene
-benzotrichloride
 benzoyl chloride
 benzyl chloride
 beryllium
@@ -109,7 +101,6 @@ beta
 beta-propiolactone
 betel
 BHA
-bicarbonate
 bifidobacterium
 biomass fuel (primarily wood)
 bis(chloroethyl) nitrosourea
@@ -145,7 +136,6 @@ chlorinated
 paraffin
 chlornaphazine
 chloroform
-chloromethyl methyl ether
 chloroprene
 chlorozotocin
 chromium hexavalent
@@ -164,7 +154,6 @@ cumene
 cupferron
 cyclopentapyrene
 cyclophosphamide
-cyclophosphamide
 cyclosporin A
 cyclosporine
 dacarbazine
@@ -176,7 +165,6 @@ diazinon
 diazoaminobenzene
 dibenzacridine
 dibenzanthracene
-dibenzacridine
 dibenzopyrene
 dichlorodiphenyltrichloroethane
 dichloromethane
@@ -200,9 +188,6 @@ disodium
 disperse blue 1
 doxorubicin hydrochloride
 dyes
-3,3'-dimethoxybenzidine
-3,3'-dimethylbenzidine
-benzidine
 enzymes
 epichlorohydrin
 erionite
@@ -283,8 +268,6 @@ N-nitrosodi-n-butylamine
 N-nitrosodi-n-propylamine
 N-nitrosodiethanolamine
 N-nitrosodiethylamine
-N-nitrosodiethylamine
-N-nitrosodimethylamine
 N-nitrosodimethylamine
 N-nitrosomethylvinylamine
 N-nitrosomorpholine
@@ -323,11 +306,9 @@ PAH
 palmitate
 paraben
 PBB
-PBB
 PCB
 pentachlorophenol
 petroleum refining
-phenacetin
 phenacetin
 phenazopyridine hydrochloride
 phenolphthalein
@@ -386,7 +367,6 @@ sulfallate
 sulfur mustard
 talc
 tamoxifen
-tamoxifen
 tanning
 TBHQ
 TCDD
@@ -394,14 +374,10 @@ tea
 teniposide
 tetra
 tetrachloroethylene (perchloroethylene)
-tetrachloroethylene (perchloroethylene)
-tetrafluoroethylene
 tetrafluoroethylene
 tetranitromethane
 tetrasodium
-thickener
 thioacetamide
-thiotepa
 thiotepa
 thiourea
 thorium dioxide
@@ -413,14 +389,13 @@ treosulfan
 tricalcium
 trichloroethylene
 TCE
+trichloropropane
 trichloropropane-1
 trichloropropane-2
 trichloropropane-3
 tripolyphosphate
 tris (2,3-dibromopropyl) phosphate
 tris(2,3-dibromopropyl) phosphate
-tris(2,3-dibromopropyl) phosphate
-urethane
 urethane
 UV
 UVA
@@ -429,7 +404,6 @@ UVC
 vanillin
 vermiculite
 vinyl bromide
-vinyl chloride
 vinyl chloride
 vinyl fluoride
 xanthan

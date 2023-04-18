@@ -1,5 +1,4 @@
 roqueforti
-bacteria
 renneti
 lacton
 renner
@@ -7,8 +6,6 @@ ennet
 anim
 rennel
 renn
-vegetarian
-veget
 cultur
 lysozym
 rennet

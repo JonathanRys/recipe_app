@@ -1,0 +1,444 @@
+definitions:
+    item: &item
+        - name
+        - description
+        - nutrition
+        - scientific_name
+
+categories:
+    - alcohol:
+        - beer: *wheat_beer
+            - negus
+        - wine:
+            - mead
+            - red:
+                - pinot noir
+                - chianti
+                - beaujolais
+                - merlot
+                - zinfandel
+                - syrah
+                - cabernet sauvignon
+            - white:
+                - reisling
+                - pinot gris
+                - pinot grigio
+                - chardonnay
+                - sauvingnon blanc
+            - rose
+            - sparklinng:
+                - semisparkling wine
+                - prosecco
+                - champagne
+            - fortified:
+                - port
+                - sherry
+                - madeira
+                - marsala
+            - dessert
+        - spirit:
+            - brandy:
+                - congac
+            - whiskey
+            - vodka
+            - gin
+            - mezcal:
+                - tequilla
+    - artificial:
+        - preservative:
+            - NaNO3
+            - nano3
+            - sodium nitrate
+        - color:
+            - blue 1
+            - red 3
+            - red 40
+            - yellow 5
+            - yellow 6
+        - flavor:
+            - msg
+            - monosodium glutamate
+        - thickener:
+            - guar gum
+        - sweetener:
+            - highfructose
+            - highfructose cornsyrup
+            - highfructosecornsyrup
+            - highfructose corn syrup
+            - high fructose cornsyrup
+            - high fructose corn syrup
+            - cornsyrup
+            - aspartame
+            - aspertame
+            - sucralose
+            - saccharin
+            - acesulfame
+            - acesulfame potassium
+            - acesulfamepotassium
+            - acek
+    - carcinogen
+    - dairy:
+        - milk:
+            - scalded milk
+            - condensed milk
+            - evaporated milk
+            - baked milk
+            - dulce de leche
+            - malai
+            - powdered milk
+            - khoa
+            - whey
+            - buttermilk
+            - milk skin
+        - cheese:
+            - rennet: &cheese_rennet
+                - cheddar
+                - grana
+                - gruyere
+                - blue
+                - brined
+                - washedrind
+            - acid-set:
+                - curds
+                - paneer
+                - chhena
+                - chhana
+                - cream cheese
+            - whey:
+                - ricotta
+                - manouri
+                - anthotyros
+                - mizithra
+                - brown cheese
+        - fermented:
+            - soured milk
+            - creeme fraiche
+            - cultured buttermilk
+            - clabber
+            - filmjolk
+            - ymer
+            - villi
+            - kefir
+            - kumis
+            - amasi
+            - mursik
+        - yogurt:
+            - acidophiline
+            - matzoon
+            - skyr
+            - strained yogurt
+            - qatyq
+            - ryazhenka
+            - varenets
+            - ayran
+            - doogh
+            - lassi
+            - leben
+        - butter:
+            - ghee:
+                - smen
+                - niter kibbeh
+        - cream:
+            - whipped cream
+            - clotted cream
+            - kaymak
+            - sour cream
+            - creme fraiche
+        - custard:
+            - frozen custard
+            - custard
+            - imitation custard
+        - frozen:
+            - ice cream
+            - ice milk
+            - gelato
+            - frozen yogurt
+            - frozen custard
+        - casein:
+            - casein
+            - whey protien
+            - milk protien
+            - caseinates
+            - hydrolysates
+            - mineral concentrates
+    - egg: *egg
+    - fish: *fish
+    - fruit:
+        - apple:
+            - mcintosh
+            - delicious:
+                - red
+                - golden
+            - jonathan
+            - pink lady
+            - fiji
+            - cortland
+            - granny smith
+            - empire
+            - gala
+            - honeycrisp
+        - banana:
+            - apple
+            - plantain
+            - lady finger
+            - blue java
+            - manzano
+            - red
+            - pisang
+            - cavendish
+            - goldfinger
+            - barangan
+            - burro
+        - berry:
+            - acai berry
+            - apple berry
+            - blackberry
+            - blueberry
+            - boysenberry
+            - cranberry
+            - dew berry
+            - elderberry
+            - goose berry
+            - huckleberry
+            - mulberry
+            - pine berry
+            - raspberry
+            - service berry
+            - strawberry
+        - currant:
+            - black currant
+            - red current
+            - white currant
+        - orange:
+            - mandarin
+            - tangerine
+            - naval
+            - blood
+            - bergamot
+            - seville
+            - clementine
+            - trifoliata
+            - cara cara
+            - satsuma
+            - bahia
+    - grain:
+        - amaranth
+        - barely
+        - buckwheat
+        - corn
+        - millet
+        - sorgham
+        - granola
+        - oat
+        - quinoa
+        - rice
+        - rye
+        - spelt
+        - teff
+        - wheat: *wheat
+    - insect: *insect
+    - legume: &legume
+        - acacia
+        - adzuki
+        - alfalfa
+        - bean
+        - black bean
+        - borlotti
+        - butter bean
+        - channa
+        - chickpea
+        - chole
+        - edamame
+        - fava
+        - garrofon
+        - haricot (habichuelas)
+        - inga
+        - kitniyot
+        - lentil
+        - locust
+        - matpe
+        - mung
+        - pea
+        - pinto
+        - soy
+        - tamarind
+    - fungus:
+        - mushroom: *mushroom
+        - yeast: *yeast
+        - penicillium roquefort
+        - aspergillus:
+            - aspergillus oryzae
+            - aspergillus sojae
+        - issatchenkia orientalis:
+            - kefir
+    - non_vegan: *non_vegan
+    - nut:
+        - acorn
+        - almond:
+            - marcona
+        - beechnut
+        - breadnut
+        - candle
+        - cashew
+        - chestnut
+        - coconut
+        - filbert
+        - hazel
+        - kola
+        - largueta
+        - macadamia
+        - pecan
+        - pistachio
+        - walnut
+    - oil
+    - pork: *pork
+    - poultry: *poultry
+    - processed:
+        - ground
+        - flavored
+        - colored
+        - texturized
+        - granulated
+        - enriched
+        - iodized
+        - sweetened
+        - juiced
+    - red_meat: *red_meat
+    - rennet: *cheese_rennet
+    - seed: *seed
+    - shellfish: *shellfish
+    - spice: *spice
+    - vegetable:
+        - root:
+            - beet
+            - carrot
+            - celeriac
+            - corm:
+                - eddoe
+                - konjac
+                - taro
+                - water chestnut
+            - ginger
+            - parsnip
+            - rutabega
+            - raddish:
+                - raddish
+                - daikon
+                - wasabi
+                - horseradish
+            - skirret
+            - tuber:
+                - jimaca
+                - jerusalem artichoke
+                - potato
+                - sweet potato
+                - yam
+            - turnip
+        - leafy:
+            - arugala
+            - bok choy
+            - chard
+            - collard greens
+            - kale
+            - lettuce
+            - mustard greens
+            - spinach
+        - squash:
+            - acorn squash
+            - banana squash
+            - bitter melon
+            - butternut squash
+            - cucumber
+            - delicata
+            - gem squash
+            - hubbard squash
+            - marrow
+            - spaghetti squash
+            - zucchini
+        - legume: *legume
+    - wheat:
+        - bread:
+            - bagel
+            - baguette
+            - baladi
+            - biscotti
+            - biscuit
+            - breadcrumbs
+            - breadstick
+            - brioche
+            - ciabatta
+            - crackers
+            - crepe
+            - croissant
+            - crouton
+            - donut
+            - faluche
+            - flatbread
+            - frybread
+            - grits
+            - groats
+            - muffin
+            - pancake
+            - paratha
+            - roll
+            - shortbread
+            - sourdough
+            - tortilla
+            - zwieback
+        - beer: &wheat_beer
+            - bud light
+            - budweiser
+            - coors
+            - corona
+            - guinness
+            - harbin
+            - heineken
+            - lagunitas
+            - miller
+            - schlitz
+            - skol
+            - snow
+            - tsingtao
+            - weihenstephaner
+            - yanjing
+        - dough:
+            - phyllo
+            - pizza
+            - seitan
+        - flour:
+            - farina
+            - semolina
+            - atta
+            - graham
+            - all-purpose
+        - wheat:
+            - bran
+            - bulgur
+            - durum
+            - einkorn
+            - germ
+            - gluten
+            - kamut
+            - khorasan
+            - wheatgrass
+            - whole
+        - pasta:
+            - cappelli
+            - fettuccine
+            - fusilli
+            - linguine
+            - macaroni
+            - noodle
+            - orzo
+            - penne
+            - rotini
+            - spaghetti
+            - tortellini
+            - udon
+            - vermicelli
+            - ziti
+    - sugar:
+        - beet
+        - cane
+        - coconut
+        - turbinado

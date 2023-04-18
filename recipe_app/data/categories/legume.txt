@@ -1,5 +1,6 @@
 acacia
 adzuki
+alfalfa
 algarroba
 bean
 beancurd
