@@ -7,7 +7,7 @@ from logging.handlers import RotatingFileHandler
 def make_logger(logging_options):
     # create logger
     logger = logging.getLogger(__name__)
-    logger.setLevel(logging.DEBUG if app.debug else logging.WARNING )
+    logger.setLevel(logging.WARNING)
 
     handler = RotatingFileHandler('/var/log/flask/flask.log', **logging_options)
 

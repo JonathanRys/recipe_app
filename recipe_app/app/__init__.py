@@ -6,8 +6,8 @@ from flask import Flask
 from pytz import timezone
 from . import config
 
-from utils.logger import make_logger
-from utils.elasticsearch import ES
+from .utils.logger import make_logger
+from .utils.elasticsearch import ES
 
 app = Flask(__name__)
 
@@ -44,7 +44,7 @@ try:
     # Load data
 
 except Exception as e:
-    logger.warning('Cannot connect to Elasticsearch:', e)
+    app.logger.warning('Cannot connect to Elasticsearch:', e)
 
 
 ### IMPORTS RELYING ON app

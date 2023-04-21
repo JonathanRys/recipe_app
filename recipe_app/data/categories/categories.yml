@@ -9,6 +9,7 @@ categories:
     - alcohol:
         - beer: *wheat_beer
             - negus
+            - glutenberg
         - wine:
             - mead
             - red:
