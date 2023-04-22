@@ -9,6 +9,8 @@ from .. import app
 @app.route("/")
 def home():
 
+    es_data = [{}]
+
     try:
         es_search = Search(using=app.es.client, index='test').query('match_all')
         es_data = es_search.execute()
@@ -19,7 +21,7 @@ def home():
         "bundle": url_for('static', filename='bundle.js'),
         "page": {
             "title": "Recipe App",
-            "data": es_data[0].data
+            "data": es_data[0].get('data', {})
         }
     }
 

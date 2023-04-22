@@ -42,6 +42,10 @@ sudo apt install -y nodejs git
 
 # install dependencies
 cd /var/www/app/app/static/$APP_NAME
-npm install
+# vagrant cannot create symlinks in shared folders under Windows 10
+# @dev
+npm install --no-bin-links
+# @prod
+# npm install
 
 # the build_watch service will build the React app so no need to do it here
